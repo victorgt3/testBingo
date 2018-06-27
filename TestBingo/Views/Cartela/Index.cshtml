@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TestBingo.Models.Cartela>
+
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table">
+    <tr>
+        <th>Jogo de Bingo</th>
+        <td>
+
+           
+        </td>
+    <tr>
+        <td>
+            @using (Html.BeginForm("Create", "Cartela", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-danger" value="Iniciar o Jogo" />
+                    </div>
+                </div>
+            }
+        </td>
+    </tr>
+</table>

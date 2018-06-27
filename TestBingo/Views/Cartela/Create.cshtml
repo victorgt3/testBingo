@@ -1,0 +1,144 @@
+﻿@model IEnumerable<TestBingo.Models.Cartela>
+
+@{
+    ViewBag.Title = "Jogo de Bingo";
+}
+
+@section Scripts
+{
+    <script>
+        $(function () {
+            $.ajax({
+                dataType: "json",
+                type: "POST",
+                url: "/Cartela/GetSorteio",
+                data: { quantidade: 70},
+                success: function (dados) {
+                    $(dados).each(function (i) {
+                        $("<tr><td>" + dados[i].Numero + "</td></tr>").insertBefore("#numeros");
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script type="text/jscript">
+        $(document).ready(function () {
+           
+        });
+    </script>
+}
+
+<div class="col-xs-4">
+    <h2>Sorteio</h2>
+    <table class="table">
+        <tr>
+            <th>Número Sorteado</th>
+            <th>
+                <button id="btnSorteio" class="btn btn-primary">Sorteio</button>
+            </th>
+        </tr>
+        <tr id="numeros">
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<div class="col-xs-4">
+    <h2>Cartelas</h2>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>G</th>
+            <th>H</th>
+            <th>I</th>
+            <th>J</th>
+            <th>K</th>
+            <th>L</th>
+            <th>M</th>
+            <th>N</th>
+            <th>O</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+
+            <tr>
+                <td><b>Cartela @Html.DisplayFor(modelItem => item.CodigoTabela)</b></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo1)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo2)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo3)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo4)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo5)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo6)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo7)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo8)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo9)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo10)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo11)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo12)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo13)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo14)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Campo15)
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+
+
